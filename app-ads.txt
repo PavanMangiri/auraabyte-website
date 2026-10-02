@@ -1,0 +1,9 @@
+# app-ads.txt for AuraaByte (https://auraabyte.com)
+# Replace pub-XXXXXXXXXXXXXXXX with YOUR publisher ID.
+# Get the exact line from: AdMob > Apps > View all apps > app-ads.txt tab > "How to set up app-ads.txt".
+
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# When you add mediation, paste the lines each network gives you BELOW this comment.
+# AppLovin MAX: AppLovin dashboard > Account > app-ads.txt
+# Unity Ads:   Unity dashboard > Monetization > app-ads.txt

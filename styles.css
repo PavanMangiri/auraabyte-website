@@ -1,0 +1,108 @@
+/* AuraaByte — shared styles */
+:root {
+  --paper: #F5F7FB;
+  --surface: #FFFFFF;
+  --ink: #16213A;
+  --muted: #5A6478;
+  --line: #DDE3EE;
+  --teal: #0B7A75;
+  --teal-soft: #DCEFEE;
+  --amber: #F2A93B;
+  --radius-lg: 28px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0F1626;
+    --surface: #172036;
+    --ink: #E8ECF4;
+    --muted: #A3ADC2;
+    --line: #263049;
+    --teal: #3CC6BD;
+    --teal-soft: #15343A;
+    --amber: #F5B84A;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; }
+a { color: var(--teal); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 16px; background: var(--surface); padding: 8px 12px; z-index: 10; }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 5;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.01em; }
+.brand svg { width: 32px; height: 32px; }
+.nav { display: flex; gap: 22px; align-items: center; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+.nav a:hover { color: var(--ink); }
+.nav .nav-cta { color: var(--surface); background: var(--ink); padding: 8px 16px; border-radius: 999px; }
+.nav .nav-cta:hover { color: var(--surface); opacity: .9; }
+@media (max-width: 720px) { .nav a:not(.nav-cta) { display: none; } }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: 1rem; }
+.btn-primary { background: var(--teal); color: #fff; }
+@media (prefers-color-scheme: dark) { .btn-primary { color: #0F1626; } }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-ghost { color: var(--ink); border: 1.5px solid var(--line); }
+.btn-ghost:hover { border-color: var(--ink); }
+
+/* Type */
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
+h1 { font-size: clamp(2.5rem, 6vw, 4.4rem); font-weight: 700; }
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
+.lede { font-size: 1.2rem; color: var(--muted); max-width: 34em; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); padding: 36px 0 48px; margin-top: 40px; color: var(--muted); font-size: 0.95rem; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 20px; }
+.site-footer a { color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--ink); text-decoration: underline; }
+
+/* Legal pages */
+.legal { padding: 64px 0 24px; }
+.legal .wrap { max-width: 760px; }
+.legal h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 8px; }
+.legal .updated { color: var(--muted); margin: 0 0 36px; }
+.legal h2 { font-size: 1.45rem; margin: 40px 0 10px; }
+.legal p, .legal li { color: var(--ink); }
+.legal li { margin-bottom: 6px; }
+.legal table { width: 100%; border-collapse: collapse; font-size: 0.97rem; margin: 12px 0; }
+.legal th, .legal td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.legal .table-scroll { overflow-x: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
